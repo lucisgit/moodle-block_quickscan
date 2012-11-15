@@ -1,0 +1,5 @@
+/** General display rules **/
+
+.block_quickscan .singlebutton {text-align: center;}
+
+#page-blocks-quickscan-launchtest .singlebutton {font-size:20px; font-weight:bold; text-align: center;}
