@@ -43,6 +43,7 @@ class block_quickscan extends block_base {
 
         $this->content = new stdClass;
         $this->content->text = $renderer->get_block_content($this->page->course->id);
+        $this->content->footer = $renderer->get_block_footer();
 
         return $this->content;
     }

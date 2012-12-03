@@ -39,6 +39,15 @@ class block_quickscan_renderer extends plugin_renderer_base {
     }
 
     /**
+     * Display block footer
+     * @return string html
+     */
+    public function get_block_footer() {
+        $config = get_config('blocks/quickscan');
+        return $config->footer;
+    }
+
+    /**
      * Display explanation content and start button
      * @return string html
      */
