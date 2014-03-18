@@ -33,3 +33,5 @@ $string['pluginname'] = 'QuickScan Dyslexia Screening';
 $string['starttest'] = 'Start Test';
 $string['title'] = 'Dyslexia Screening';
 $string['quickscantest'] = 'QuickScan Test';
+$string['quickscan:myaddinstance'] = 'Add a new QuickScan instance to My home';
+$string['quickscan:addinstance'] = 'Add a new QuickScan instance';
