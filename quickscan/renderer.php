@@ -60,6 +60,9 @@ class block_quickscan_renderer extends plugin_renderer_base {
         if ($config->url) {
             $url = new moodle_url($config->url, array('txtpi' => $USER->username));
             $button = new single_button($url, get_string('starttest', 'block_quickscan'));
+            $action = new popup_action('click', $url, 'popup', array('width' => 0, 'height' => 0,
+                    'toolbar' => false, 'fullscreen' => true));
+            $button->add_action($action);
             $html .= html_writer::tag('div', $this->output->render($button));
         }
         $html .= html_writer::end_tag('div');
