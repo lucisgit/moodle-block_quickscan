@@ -23,23 +23,20 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
 class block_quickscan extends block_base {
 
-    // Initialise block
+    // Initialise block.
     public function init() {
         $this->title = get_string('title', 'block_quickscan');
     }
 
-    // Generate HTML for block contents
+    // Generate HTML for block contents.
     public function get_content() {
-        global $PAGE;
         if ($this->content !== null) {
             return $this->content;
         }
 
-        $renderer = $PAGE->get_renderer('block_quickscan');
+        $renderer = $this->page->get_renderer('block_quickscan');
 
         $this->content = new stdClass;
         $this->content->text = $renderer->get_block_content($this->page->course->id);
@@ -48,8 +45,8 @@ class block_quickscan extends block_base {
         return $this->content;
     }
 
-    // Block has global config (display "Settings" link on blocks admin page)
-    function has_config() {
+    // Block has global config (display "Settings" link on blocks admin page).
+    public function has_config() {
         return true;
     }
 }

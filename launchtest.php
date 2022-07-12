@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -26,7 +25,7 @@
 
 require('../../config.php');
 
-$courseid = required_param('courseid', PARAM_INT); //if no courseid is given
+$courseid = required_param('courseid', PARAM_INT);
 require_login($courseid);
 $course = $DB->get_record('course', array('id' => $courseid), '*', MUST_EXIST);
 
@@ -36,10 +35,10 @@ $PAGE->set_heading($SITE->fullname);
 $PAGE->set_pagelayout('course');
 $PAGE->set_title(get_string('quickscantest', 'block_quickscan'));
 $PAGE->navbar->add(get_string('quickscantest', 'block_quickscan'));
+$PAGE->add_body_class('limitedwidth');
 
 $renderer = $PAGE->get_renderer('block_quickscan');
 
-// OUTPUT
 echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('quickscantest', 'block_quickscan'), 3, 'main');
 echo $renderer->get_test_description();
