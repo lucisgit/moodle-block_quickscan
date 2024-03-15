@@ -31,11 +31,10 @@ class block_quickscan_renderer extends plugin_renderer_base {
      * @return string html
      */
     public function get_block_content($courseid) {
-        $url = new moodle_url('/blocks/quickscan/launchtest.php', array('courseid' => $courseid));
-        $button = new single_button($url,
-            get_string('quickscantest', 'block_quickscan'));
-        $html = html_writer::tag('div', $this->output->render($button));
-        return $html;
+        $url = new moodle_url('/blocks/quickscan/launchtest.php', ['courseid' => $courseid]);
+        $button = new single_button($url, get_string('quickscantest', 'block_quickscan'));
+
+        return html_writer::tag('div', $this->output->render($button));
     }
 
     /**
@@ -44,6 +43,7 @@ class block_quickscan_renderer extends plugin_renderer_base {
      */
     public function get_block_footer() {
         $config = get_config('blocks/quickscan');
+
         return $config->footer;
     }
 
@@ -53,15 +53,15 @@ class block_quickscan_renderer extends plugin_renderer_base {
      */
     public function get_test_description() {
         global $USER;
-        $config = get_config('blocks/quickscan');
 
-        $html = html_writer::start_tag('div', array('id' => 'page-blocks-quickscan-launchtest'));
+        $config = get_config('blocks/quickscan');
+        $html = html_writer::start_tag('div', ['id' => 'page-blocks-quickscan-launchtest']);
         $html .= $config->explanation;
         if ($config->url) {
-            $url = new moodle_url($config->url, array('txtpi' => $USER->username));
+            $url = new moodle_url($config->url, ['txtpi' => $USER->username]);
             $button = new single_button($url, get_string('starttest', 'block_quickscan'));
-            $action = new popup_action('click', $url, 'popup', array('width' => 0, 'height' => 0,
-                    'toolbar' => false, 'fullscreen' => true));
+            $action = new popup_action('click', $url, 'popup', ['width' => 0, 'height' => 0,
+                    'toolbar' => false, 'fullscreen' => true]);
             $button->add_action($action);
             $html .= html_writer::tag('div', $this->output->render($button));
         }

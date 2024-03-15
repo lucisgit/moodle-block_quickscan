@@ -27,7 +27,7 @@ require('../../config.php');
 
 $courseid = required_param('courseid', PARAM_INT);
 require_login($courseid);
-$course = $DB->get_record('course', array('id' => $courseid), '*', MUST_EXIST);
+$course = $DB->get_record('course', ['id' => $courseid], '*', MUST_EXIST);
 
 $PAGE->set_course($course);
 $PAGE->set_url('/blocks/quickscan/launchtest.php');
