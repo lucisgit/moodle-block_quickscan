@@ -15,10 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Quickscan launching page
+ * Launch page for the Quickscan block.
  *
- * @package    block
- * @subpackage quickscan
+ * @package    block_quickscan
  * @copyright  2012, Lancaster University, Ruslan Kabalin
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

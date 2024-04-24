@@ -15,23 +15,31 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Quickscan block
+ * The Quickscan block.
  *
- * @package    block
- * @subpackage quickscan
+ * @package    block_quickscan
  * @copyright  2012, Lancaster University, Ruslan Kabalin
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+/**
+ * Quickscan block class definition.
+ */
 class block_quickscan extends block_base {
 
-    // Initialise block.
-    public function init() {
+    /**
+     * Sets the block title.
+     */
+    public function init(): void {
         $this->title = get_string('title', 'block_quickscan');
     }
 
-    // Generate HTML for block contents.
-    public function get_content() {
+    /**
+     * Generates the main content of the block.
+     *
+     * @return stdClass
+     */
+    public function get_content(): stdClass {
         if ($this->content !== null) {
             return $this->content;
         }
@@ -45,8 +53,13 @@ class block_quickscan extends block_base {
         return $this->content;
     }
 
-    // Block has global config (display "Settings" link on blocks admin page).
-    public function has_config() {
+    /**
+     * Block has global config (display "Settings" link on blocks admin page).
+     *
+     * @return bool
+     */
+    public function has_config(): bool {
         return true;
     }
+
 }

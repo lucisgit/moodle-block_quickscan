@@ -15,22 +15,25 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Block quickscan renderer
+ * Display renderer for the Quickscan block.
  *
- * @package    block
- * @subpackage quickscan
+ * @package    block_quickscan
  * @copyright  2012, Lancaster University, Ruslan Kabalin
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+/**
+ * Quickscan block renderer class definition.
+ */
 class block_quickscan_renderer extends plugin_renderer_base {
 
     /**
-     * Display block content
-     * @param int courseid
+     * Renders HTML to display the block content.
+     *
+     * @param int $courseid
      * @return string html
      */
-    public function get_block_content($courseid) {
+    public function get_block_content($courseid): string {
         $url = new moodle_url('/blocks/quickscan/launchtest.php', ['courseid' => $courseid]);
         $button = new single_button($url, get_string('quickscantest', 'block_quickscan'));
 
@@ -38,20 +41,22 @@ class block_quickscan_renderer extends plugin_renderer_base {
     }
 
     /**
-     * Display block footer
+     * Renders HTML to display the block footer.
+     *
      * @return string html
      */
-    public function get_block_footer() {
+    public function get_block_footer(): string {
         $config = get_config('blocks/quickscan');
 
         return $config->footer;
     }
 
     /**
-     * Display explanation content and start button
+     * Display explanation content and start button.
+     *
      * @return string html
      */
-    public function get_test_description() {
+    public function get_test_description(): string {
         global $USER;
 
         $config = get_config('blocks/quickscan');
@@ -69,4 +74,5 @@ class block_quickscan_renderer extends plugin_renderer_base {
 
         return $html;
     }
+
 }
